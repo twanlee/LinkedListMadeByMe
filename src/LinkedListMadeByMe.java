@@ -1,15 +1,20 @@
 public class LinkedListMadeByMe<T>{
   private class Node<T>{
       T data;
-      Node next;
+      Node<T> next;
       public Node(T data){
           this.data = data;
       }
   }
-  Node<T> tail = null;
-  Node<T> head = null;
+  Node tail = null;
+  Node head = null;
   int size = 0;
-  public LinkedListMadeByMe(){};
+
+    public int getSize() {
+        return size;
+    }
+
+    public LinkedListMadeByMe(){};
   public void addFirst(T data){
       if(head == null) head = new Node(data);
       else {
@@ -85,7 +90,7 @@ public class LinkedListMadeByMe<T>{
   public Boolean contains(T data){
       Node temp = head;
       for(int i = 0; i<size; i++){
-          if(temp.equals(data)) return true;
+          if(temp.data==data) return true;
           temp = temp.next;
       }
       return false;
